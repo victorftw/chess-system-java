@@ -1,6 +1,6 @@
 package application;
 
-import boardgame.Board;
+import chess.ChessMatch;
 
 /**
  * This is an empty Java program It serves as a starting point for your application.
@@ -15,7 +15,8 @@ public class Program {
    */
 
   public static void main(String[] args) {
-    Board board = new Board(8, 8);
+    ChessMatch chessMatch = new ChessMatch();
+    UserInterface.printBoard(chessMatch.getPieces());
   }
 
 }
