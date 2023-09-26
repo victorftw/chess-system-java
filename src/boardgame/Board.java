@@ -81,6 +81,29 @@ public class Board {
     piece.position = position;
   }
 
+  /**
+   * Removes the piece at the specified position from the board.
+   *
+   * @param position The position from which to remove the piece.
+   * @return The removed piece, or null if there was no piece at the specified position.
+   * @throws BoardException If the specified position is not on the board.
+   */
+
+  public Piece removePiece(Position position) {
+    if (!positionExists(position)) {
+      throw new BoardException("Position not on the board");
+    }
+    if (piece(position) == null) {
+      return null;
+    }
+
+    Piece aux = piece(position);
+    aux.position = null;
+    pieces[position.getRow()][position.getColumn()] = null;
+
+    return aux;
+  }
+
   private boolean positionExists(int row, int column) {
     return row >= 0 && row < rows && column >= 0 && column < columns;
   }
