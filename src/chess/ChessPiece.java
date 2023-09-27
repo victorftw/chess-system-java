@@ -7,7 +7,7 @@ import boardgame.Piece;
  * Represents a chess piece, which is a specific kind of piece on the chess board.
  */
 
-public class ChessPiece extends Piece {
+public abstract class ChessPiece extends Piece {
 
   private Color color;
 
