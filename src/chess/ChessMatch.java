@@ -36,6 +36,21 @@ public class ChessMatch {
   }
 
   /**
+   * Calculates and returns the possible moves for the chess piece at the source position.
+   *
+   * @param sourcePosition The source position from which to calculate possible moves.
+   * @return A boolean matrix indicating the possible moves for the chess piece.
+   * @throws ChessException If the source position is invalid or there is no piece at the source
+   *         position.
+   */
+
+  public boolean[][] possibleMoves(ChessPosition sourcePosition) {
+    Position position = sourcePosition.toPosition();
+    validateSourcePosition(position);
+    return board.piece(position).possibleMoves();
+  }
+
+  /**
    * Performs a chess move from the source position to the target position.
    *
    * @param sourcePosition The source position from which to move a chess piece.
