@@ -1,5 +1,6 @@
 package application;
 
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
@@ -60,6 +61,19 @@ public class UserInterface {
     }
   }
 
+  /**
+   * Prints the current state of a chess match, including the chessboard, turn number, and current
+   * player.
+   *
+   * @param chessMatch The ChessMatch object representing the current chess match.
+   */
+
+  public static void printMatch(ChessMatch chessMatch) {
+    printBoard(chessMatch.getPieces());
+    System.out.println();
+    System.out.println("Turn: " + chessMatch.getTurn());
+    System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+  }
 
   /**
    * Prints the chessboard with its pieces to the console.
