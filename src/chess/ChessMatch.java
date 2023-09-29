@@ -9,7 +9,6 @@ import chess.pieces.Knight;
 import chess.pieces.Pawn;
 import chess.pieces.Queen;
 import chess.pieces.Rook;
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -158,8 +157,6 @@ public class ChessMatch {
    * @param type The type of the new piece to promote to (B, N, Q, R).
    * @return The new ChessPiece that replaces the promoted pawn.
    * @throws IllegalStateException If there is no piece to be promoted.
-   * @throws InvalidParameterException If the specified type is not a valid piece type for
-   *         promotion.
    */
 
   public ChessPiece replacePromotedPiece(String type) {
@@ -168,7 +165,7 @@ public class ChessMatch {
     }
 
     if (!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
-      throw new InvalidParameterException("Invalid type for promotion");
+      return promoted;
     }
 
     Position pos = promoted.getChessPosition().toPosition();
